@@ -1,0 +1,85 @@
+<html>
+  <head>
+    
+</head>
+  <body>
+
+    <div>Welcome To Tuely's Restaurent</div><br><br>
+	
+<form name="Res" method="post">
+
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname">   &nbsp;&nbsp;&nbsp;&nbsp
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  
+  
+  <br>Starter Menu  &nbsp;&nbsp;&nbsp;&nbsp <br>
+  
+  <input type="checkbox" name="starter" class="A" id="Starter1"/>Antipasto garlic bread &nbsp;&nbsp;&nbsp;&nbsp<br>
+<input type="checkbox" name="starter" class="A" id="Starter2"/>Charred spring onions<br>
+<input type="checkbox" name="starter" class="A" id="Starter3"/>Spring Rolls<br>
+<input type="checkbox" name="starter" class="A" id="Starter4" />Ceasar Salad<br>
+<input type="checkbox" name="starter" class="A" id="Starter5"/>French Onion Soup<br>
+<p id="StarterTile">Total Number of Straters Selected<p>  
+<p id="result"><p>  
+<script>
+showChecked();
+function showChecked(){
+  document.getElementById("result").textContent = document.querySelectorAll(".A:checked").length;
+}
+document.querySelectorAll("input[name=starter]").forEach(i=>{
+ i.onclick = function(){
+  showChecked();
+ }
+});
+</script>
+  
+  
+ 
+<br>Main Menu  &nbsp;&nbsp;&nbsp;&nbsp <br>
+
+
+</script>
+
+<input type="checkbox" name="main" class="H"  id="Main1"/>Grilled Salmon<br>
+<input type="checkbox" name="main"  class="H" id="Main2"/>Roast Beef With Vegetables <br>
+<input type="checkbox" name="main" class="H" id="Main3"/>Chicken and Mushroom Pie<br>
+<input type="checkbox" name="main" class="H" id="Main4"/>EggPlant Lasange <br>
+<input type="checkbox" name="main" class="H" id="Main5"/>Pasta<br>
+<input type="checkbox" name="main" class="H" id="Main6"/>Rice<br>
+<input type="checkbox" name="main" class="H" id="Main7"/>Chicken Tikka <br>
+<p id="MainMenuResultTitle"> Total Number of Items from Main Menu <p> 
+<p id="MainMenuResult"> <p>  
+<script>
+showChecked1();
+function showChecked1(){
+
+  document.getElementById("MainMenuResult").textContent = document.querySelectorAll(".H:checked").length;
+}
+document.querySelectorAll("input[class=H]").forEach(i=>{
+ i.onclick = function(){
+  showChecked1();
+ }
+});
+</script>
+
+
+<button type="button" id="Checkout" onclick="doMath()">CheckOut</button>
+
+<script type="text/javascript">
+    function doMath()
+    {
+        // Capture the entered values of two input boxes
+        var my_input1 = document.getElementById('MainMenuResult').textContent ;
+        var my_input2 = document.getElementById('result').textContent ;
+
+        // Add them together and display
+       var sum = ((parseFloat(my_input1) *4.2) + (parseFloat(my_input2)*7.5));
+		alert(sum);
+    }
+</script>
+
+</form>
+  </body>
+</html>
