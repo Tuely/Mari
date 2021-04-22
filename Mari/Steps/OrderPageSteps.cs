@@ -44,9 +44,9 @@ namespace Mari.Steps
         }
         
         [Then(@"I should see the total amount as '(.*)'")]
-        public void ThenIShouldSeeTheTotalAmountAs(int total)
+        public void ThenIShouldSeeTheTotalAmountAs(double total)
         {
-            ScenarioContext.Current.Pending();
+            _page.OrdersPage().VerifyTotalAmount(total)
         }
     }
 }

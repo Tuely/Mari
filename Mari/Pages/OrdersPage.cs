@@ -1,5 +1,6 @@
 ﻿using Mari.CoreUI;
 using Mari.Extensions;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System;
@@ -8,12 +9,12 @@ using System.Text;
 
 namespace Mari.Pages
 {
-  public  class OrdersPage
+    public class OrdersPage
     {
         protected WebDriverSupport _driverSupport = new WebDriverSupport();
 
         #region OrdersPage Elements
-  
+
         [FindsBy(How = How.Id, Using = "fname")]
         private IWebElement FirstNameText { get; set; }
 
@@ -34,13 +35,16 @@ namespace Mari.Pages
 
         [FindsBy(How = How.Id, Using = "Checkout")]
         private IWebElement CheckoutButton { get; set; }
+
+        [FindsBy(How = How.Id, Using = "TotalAmoount")]
+        private IWebElement TotalAmount { get; set; }
         #endregion
 
         #region OrdersPage Actions
         public void EnterPersonalDetails(string firstname, string lastname)
         {
             WebElementExtension.EnterTextIntoField(FirstNameText, firstname);
-           WebElementExtension.EnterTextIntoField(LastNameText, lastname);
+            WebElementExtension.EnterTextIntoField(LastNameText, lastname);
         }
 
         public void SelectStarterMenu(string s1, string s2)
@@ -51,14 +55,20 @@ namespace Mari.Pages
 
         public void SelectMainMenu(string m1, string m2, string m3)
         {
-          //  WebElementExtension.SelectElementByText(Main1, m1);
-           // WebElementExtension.SelectElementByText(Main5, m2);
-           // WebElementExtension.SelectElementByText(Main7, m3);
+            WebElementExtension.SelectElementByText(Main1, m1);
+            WebElementExtension.SelectElementByText(Main5, m2);
+            WebElementExtension.SelectElementByText(Main7, m3);
         }
 
         public void ClickCheckOut()
         {
             CheckoutButton.Click();
+        }
+
+        public void VerifyTotalAmount(double amount)
+        {
+            Assert.That(TotalAmount.Text, Is.EqualTo(amount));
+
         }
         #endregion
     }

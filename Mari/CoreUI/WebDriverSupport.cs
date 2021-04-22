@@ -57,14 +57,7 @@ namespace Mari.CoreUI
             Thread.Sleep(milliSeconds);
         }
 
-        public void SelectElementByText1(IWebElement element, string text)
-        {
-            //WaitUntilElementDisplayed(element);
-            //WaitUntilElementDisplayed(element);
-            var select = new SelectElement(element);
-            select.SelectByText(text);
-        }
-
+       
 
     }
 }
