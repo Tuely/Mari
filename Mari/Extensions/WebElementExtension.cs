@@ -140,5 +140,12 @@ namespace Mari.Extensions
             select.SelectByText(text);
         }
 
+        public static void SelectElementByIndex(IWebElement element, int text)
+        {
+            WaitUntilDisplayed(element);
+            var select = new SelectElement(element);
+            select.SelectByIndex(text);
+        }
+
     }
 }

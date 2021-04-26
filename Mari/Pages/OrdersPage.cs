@@ -49,15 +49,17 @@ namespace Mari.Pages
 
         public void SelectStarterMenu(string s1, string s2)
         {
-            WebElementExtension.SelectElementByText(Starter3, s2);
-            WebElementExtension.SelectElementByText(Starter5, s2);
+            Starter3.ClickElement();
+            Starter5.ClickElement();
+            
         }
 
         public void SelectMainMenu(string m1, string m2, string m3)
         {
-            WebElementExtension.SelectElementByText(Main1, m1);
-            WebElementExtension.SelectElementByText(Main5, m2);
-            WebElementExtension.SelectElementByText(Main7, m3);
+            Main1.ClickElement();
+            Main5.ClickElement();
+            Main7.ClickElement();
+            //WebElementExtension.SelectElementByText(Main7, m3);
         }
 
         public void ClickCheckOut()
@@ -67,7 +69,8 @@ namespace Mari.Pages
 
         public void VerifyTotalAmount(double amount)
         {
-            Assert.That(TotalAmount.Text, Is.EqualTo(amount));
+            var total = Math.Round(Double.Parse(TotalAmount.Text));
+            Assert.That(total, Is.EqualTo(amount));
 
         }
         #endregion

@@ -27,7 +27,7 @@ namespace Mari.Reports
 
         public static void TearDownReport(ExtentReports extent)
         {
-          //  extent.Flush();
+           extent.Flush();
         }
     }
 }

@@ -15,7 +15,9 @@ namespace Mari
         public void Test1()
         {
             IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("file:///C:/Users/TSaseendran/Desktop/ResDemo.html");
+            driver.Navigate().GoToUrl("file:///C:/TC/Mari/Mari/UI/ResDemo.html");
+            driver.Manage().Window.Maximize();
+            driver.FindElement(By.Id("Starter3")).Click();
         }
     }
 }

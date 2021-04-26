@@ -46,7 +46,7 @@ namespace Mari.Steps
         [Then(@"I should see the total amount as '(.*)'")]
         public void ThenIShouldSeeTheTotalAmountAs(double total)
         {
-            _page.OrdersPage().VerifyTotalAmount(total)
+            _page.OrdersPage().VerifyTotalAmount(total);
         }
     }
 }
